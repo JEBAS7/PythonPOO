@@ -1,0 +1,8 @@
+from operator import length_hint
+
+from rich import print
+from rich.panel import Panel
+
+caixa = Panel('[white]Esse aqui é um painel de exemplo[/] :+1:', title='Mensagem', style='bold red', width=40, height=15)
+
+print(caixa)
