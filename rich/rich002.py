@@ -1,5 +1,3 @@
-from operator import length_hint
-
 from rich import print
 from rich.panel import Panel
 
