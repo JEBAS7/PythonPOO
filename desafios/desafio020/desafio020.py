@@ -16,15 +16,15 @@ class Gamer:
         self.favoritos.sort()
 
         # 2. Cria o texto de dentro da caixinha
-        texto = f"Nome real: [white]{self.nome}[/]\n"
+        texto = f"Nome real: [black on blue]{self.nome}[/]\n"
         texto += "Jogos favoritos:\n"
 
         # 3. Passa por cada jogo da lista e adiciona o emoji de controle 🎮
         for jogo in self.favoritos:
-            texto += f" [purple]🎮[/] [blue]{jogo}[/]\n"
+            texto += f":video_game: [blue]{jogo}[/]\n"
 
         # 4. Desenha o painel com o nick do jogador no título
-        print(Panel(texto, title=f"Jogador <{self.nick}>", title_align="left"))
+        print(Panel(texto, title=f"Jogador <{self.nick}>", width=40))
 
 
 # --- TESTE DO CÓDIGO (Igualzinho ao do Guanabara na imagem) ---
