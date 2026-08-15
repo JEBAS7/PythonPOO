@@ -1,4 +1,4 @@
-from funcionarios import FuncionarioHorista, FuncionarioMensalista
+from funcionarios import *
 
 
 def main():

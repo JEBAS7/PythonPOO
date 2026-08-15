@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from rich import print
 from rich.panel import Panel
 
 
@@ -25,18 +26,13 @@ class Funcionario(ABC):
 
         # Monta a string exatamente igual ao print do Guanabara
         nome_classe = self.__class__.__name__
-        texto = (
-            f"O salário de {self.nome} ([magenta]{nome_classe}[/magenta]) é de "
-            f"[green]R${self.salario:.2f}[/green] e corresponde a "
-            f"[yellow]{qtd_sal_min:.1f}[/yellow] salários mínimos."
-        )
+        texto = f'O salário de [blue]{self.nome}[/] ([magenta]{nome_classe}[/magenta]) é de ' f'[green]R${self.salario:.2f}[/green] e corresponde a '  f'[yellow]{qtd_sal_min:.1f} salários mínimos.[/yellow]'
 
         # Cria o painel estilizado com bordas arredondadas
-        painel = Panel(texto, title="Análise de Salário", expand=False)
+        painel = Panel(texto, title="Análise de Salário", width=50)
 
         # Importação local do print do rich para não chocar com o print padrão
-        from rich import print as rprint
-        rprint(painel)
+        print(painel)
 
 
 # --- CLASSE FILHA: HORISTA ---
