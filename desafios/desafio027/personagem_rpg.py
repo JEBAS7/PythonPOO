@@ -19,13 +19,12 @@ class Personagem(ABC):
             print(f'O ataque {self.nome} -> {alvo.nome} não pode acontecer')
 
     def receber_dano(self, dano):
-        from rich import print as rprint
         fator = random.randint(0, dano)
         self.vida -= fator
         if self.vida < 0:
             self.vida = 0
 
-        rprint(f"[cyan]{self.nome} recebeu dano de {fator}![/cyan]")
+        print(f"[cyan]{self.nome} recebeu dano de {fator}![/cyan]")
 
     # === NOVO MÉTODO COMPLEMENTAR (DESAFIO 027) ===
     def morreu(self, personagem_alvo: 'Personagem', reviveu: int = 0):
@@ -33,15 +32,15 @@ class Personagem(ABC):
         Método para verificar morte ou aplicar mecânica de ressurreição.
         reviveu=0 torna o parâmetro opcional no código principal.
         """
-        from rich import print as rprint
+
 
         # Se um valor de ressurreição foi passado (maior que zero)
         if reviveu > 0:
             personagem_alvo.vida = reviveu
-            rprint(
+            print(
                 f"[yellow]✨ {personagem_alvo.nome} usou uma habilidade especial e reviveu com {reviveu} de vida![/yellow]")
         else:
-            rprint(f"[red]💀 {personagem_alvo.nome} foi derrotado em combate.[/red]")
+            print(f"[red]💀 {personagem_alvo.nome} foi derrotado em combate.[/red]")
 
     @abstractmethod
     def curar(self):
@@ -55,10 +54,9 @@ class Guerreiro(Personagem):
         self.golpes = ["Golpe de Machado", "Espadada", "Soco"]
 
     def curar(self):
-        from rich import print as rprint
         cura = random.randint(150, 300)
         self.vida += cura
-        rprint(f"[blue]{self.nome} fez uma ação de cura e recuperou {cura} pontos de vida.[/blue]")
+        print(f"[blue]{self.nome} fez uma ação de cura e recuperou {cura} pontos de vida.[/blue]")
 
 
 # --- CLASSE FILHA: MAGO ---
@@ -68,7 +66,6 @@ class Mago(Personagem):
         self.golpes = ["Bola de Fogo", "Raio Arcano", "Explosão de Gelo"]
 
     def curar(self):
-        from rich import print as rprint
         cura = random.randint(200, 800)
         self.vida += cura
-        rprint(f"[blue]{self.nome} fez uma magia de cura e recuperou {cura} pontos de vida.[/blue]")
+        print(f"[blue]{self.nome} fez uma magia de cura e recuperou {cura} pontos de vida.[/blue]")
