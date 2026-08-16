@@ -1,4 +1,4 @@
-from classe030 import Credencial
+from classes030 import Credencial
 from rich import print, inspect
 
 
