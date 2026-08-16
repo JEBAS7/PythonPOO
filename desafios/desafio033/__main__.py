@@ -5,7 +5,7 @@ from rich import print, inspect
 def main():
     print("[bold blue]👨‍🎓 Cadastrando Aluno...[/bold blue]")
     # Criando a Maria no curso de ADS (que é válido!)
-    aluno = Aluno("Maria", 2010, "ADM")
+    aluno = Aluno("Jebass", 1977, "PYTHON")
 
     # Mostra o inspect idêntico ao do Guanabara na sua imagem
     inspect(aluno, private=True, methods=True)
