@@ -1,7 +1,6 @@
 from rich import inspect
 from ex010 import Avaliacao
 
-
 def main():
     av1 = Avaliacao('Pedro', 'Matemática')
     av1.nota = 7.4

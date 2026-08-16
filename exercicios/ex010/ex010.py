@@ -5,6 +5,7 @@ class Avaliacao:
         self.disciplina = disciplina
         self._nota = nota # Atributo protected (#)
 
+    # Criando Atributo Validável
     @property
     def nota(self): # getter
         return self._nota
