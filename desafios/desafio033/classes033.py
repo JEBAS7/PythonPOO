@@ -1,7 +1,6 @@
 from abc import ABC
 from datetime import datetime
 
-
 class Pessoa(ABC):  # Classe Abstrata
     def __init__(self, nome: str, nascimento: int):
         self._nome = str(nome)
@@ -60,6 +59,10 @@ class Aluno(Pessoa):  # Aluno herda de Pessoa
             self._curso = curso_formatado
 
     def add_curso(self, curso: str):
-        curso_formatado = str(curso).strip().upper()
-        if curso_formatado not in self.cursos_oficiais:
-            self.cursos_oficiais.append(curso_formatado)
+        from rich import print
+        if curso not in self.cursos_oficiais:
+            curso_formatado = str(curso).strip().upper()
+            if curso_formatado not in self.cursos_oficiais:
+                self.cursos_oficiais.append(curso_formatado)
+        else:
+            print(f'[yellow]O curso {curso} já está na lista de cursos oficiais.[/]')

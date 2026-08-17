@@ -35,26 +35,3 @@ class Termostato:
     def ftemperatura(self) -> str:
         """Retorna a temperatura formatada como texto (ex: '22.5°C')."""
         return f"{self.__temperatura:.1f}°C"
-
-
-# --- TESTANDO O DESAFIO ---
-if __name__ == "__main__":
-    # Criando o termostato
-    meu_termostato = Termostato(21.0)
-    print(f"Temperatura atual: {meu_termostato.ftemperatura}")
-
-    # Testando alteração normal (com incremento de 0.5)
-    meu_termostato.temperatura = 23.5
-    print(f"Alterado para 23.5: {meu_termostato.ftemperatura}")
-
-    # Testando a regra do incremento (colocando 24.12, ele deve arredondar para 24.0)
-    meu_termostato.temperatura = 24.12
-    print(f"Tentativa de 24.12: {meu_termostato.ftemperatura}")
-
-    # Testando o limite máximo (tentando colocar 45°C)
-    meu_termostato.temperatura = 45.0
-    print(f"Tentativa de 45.0°C: {meu_termostato.ftemperatura} (travou no máximo!)")
-
-    # Testando o limite mínimo (tentando colocar 5°C)
-    meu_termostato.temperatura = 5.0
-    print(f"Tentativa de 5.0°C: {meu_termostato.ftemperatura} (travou no mínimo!)")

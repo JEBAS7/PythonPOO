@@ -58,6 +58,7 @@ class Retangulo:
             self._base = float(novas_medidas[0])
             self._altura = float(novas_medidas[1])
             self._recalcular_area()
+            return f'Base: {self._base} \nAltura: {self._altura} \nÁrea: {self._area}'
         else:
             raise ValueError("A tupla de medidas deve conter exatamente 2 valores: (base, altura)")
 
@@ -65,4 +66,5 @@ class Retangulo:
     @property
     def area(self) -> float:
         """Retorna a área calculada. Não possui setter para não ser burlada!"""
+        self._area = self._base * self._altura
         return self._area

@@ -6,7 +6,7 @@ def main():
 
     d.escrever('Primeira mensagem')
     d.escrever('Você é uma pessoa simpática')
-    d.escrever('Você gosta de Python')
+    d.escrever(' Você gosta de Python')
 
     inspect(d, private=True, methods=True)
 

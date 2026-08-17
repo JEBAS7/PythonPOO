@@ -3,14 +3,16 @@ from rich import print
 
 
 class ContaBancaria:
-    def __init__(self, id_conta: int, titular: str, saldo_inicial: float, chave: str):
+    def __init__(self, id_conta: int, titular: str = None, saldo_inicial: float= 0, chave: str = None):
         # Atributos protegidos
         self._id = int(id_conta)
         self._titular = str(titular)
 
         # Atributos privados
         self.__saldo = float(saldo_inicial) if saldo_inicial >= 0 else 0.0
-        self.__hash = ""
+        if chave is None:
+            chave = self.pede_senha()
+        self.__hash = hashlib.sha256(chave.encode()).hexdigest()
 
         # Define a senha passada por parâmetro (igual à linha 6 do professor)
         self._definir_senha(chave)
@@ -26,28 +28,14 @@ class ContaBancaria:
 
 
     def pede_senha(self) -> str:
-        """Pede a senha com asteriscos em tempo real (Windows)."""
-        import msvcrt
-        import sys
-        print("Senha: ", end="", flush=True)
-        senha = ""
+        """Pede a senha com asteriscos em tempo real."""
+
+        from pwinput import pwinput
+
         while True:
-            ch = msvcrt.getch()
-            if ch in (b'\r', b'\n'):
-                print()
+            senha = str(pwinput('Senha: ')).strip()
+            if len(senha) >= 6:
                 break
-            elif ch == b'\x08':
-                if len(senha) > 0:
-                    senha = senha[:-1]
-                    sys.stdout.write('\b \b')
-                    sys.stdout.flush()
-            else:
-                try:
-                    senha += ch.decode('utf-8')
-                    sys.stdout.write('*')
-                    sys.stdout.flush()
-                except UnicodeDecodeError:
-                    pass
         return senha
 
     def validar_senha(self, chave: str) -> bool:
@@ -73,3 +61,17 @@ class ContaBancaria:
                 print("[red]❌ Saldo insuficiente![/red]")
         else:
             print("[bold red]❌ Senha incorreta! Operação cancelada.[/bold red]")
+
+    @property
+    def nome(self):
+        return self._titular
+
+    @nome.setter
+    def nome(self, novonome: str = None):
+        chave = self.pede_senha()
+
+        if self.validar_senha(chave):
+            if len(novonome):
+                self._titular = novonome
+        else:
+            print('Senha não confere. Não posso alterar o nome')

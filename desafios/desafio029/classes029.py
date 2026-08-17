@@ -7,11 +7,11 @@ class Diario:
     def __init__(self, senha_inicial: str):
         # Inicializa a lista de segredos vazia e define a senha (tudo privado)
         self.__segredos = []
-        self.__senha = str(senha_inicial)
+        self.__senha = str(senha_inicial.strip())
 
     def escrever(self, msg: str):
         """Método público para adicionar um segredo. Qualquer um pode escrever!"""
-        self.__segredos.append(msg)
+        self.__segredos.append(msg.strip())
         console.print("[green]✓[/green] Segredo guardado a sete chaves no diário!")
 
     def ler(self, senha: str):
