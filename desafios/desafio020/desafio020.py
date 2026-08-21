@@ -27,7 +27,7 @@ class Gamer:
         print(Panel(texto, title=f"Jogador <{self.nick}>", width=40))
 
 
-# --- TESTE DO CÓDIGO (Igualzinho ao do Guanabara na imagem) ---
+# Programa Principal
 j1 = Gamer(nome="Fabricio da Silva", nick="detonator2025")
 j1.add_favoritos("Mario Bros.")
 j1.add_favoritos("Sonic")

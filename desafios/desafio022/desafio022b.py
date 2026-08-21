@@ -38,7 +38,7 @@ class ControleRemoto:
 
     def volume_menos(self):
         if self.ligado:
-            if self.volume_atual != ControleRemoto.canal_max:
+            if self.volume_atual != ControleRemoto.canal_min:
                 self.volume_atual -= 1
 
 
@@ -68,7 +68,7 @@ class ControleRemoto:
 c = ControleRemoto()
 while True:
     c.mostrar_tv()
-    comando = str(input(f'< CH{c.canal_atual} >   - VOL{c.volume_atual} + '))
+    comando = str(input(f'< CH{c.canal_atual} >  - VOL{c.volume_atual} + '))
     match comando:
         case '0':
             break

@@ -15,7 +15,7 @@ class Caneta:
     def escrever(self, texto):
         # Primeiro, checamos se a caneta está tampada
         if self.tampada:
-            print("[yellow]⚠️ Não dá para escrever com a caneta tampada![/]")
+            print(":prohibited: [yellow]Não dá para escrever com a caneta tampada![/]")
             return
 
         # Usamos o self.cor (a cor da própria caneta) para escolher a tag do Rich
@@ -32,7 +32,7 @@ class Caneta:
         print('\n' * quebrar, end='') # O end='' evita que o Python pule uma linha extra além do desejado
 
 
-# --- TESTE DO CÓDIGO ---
+# Programa Principal
 c1 = Caneta('azul')
 c2 = Caneta('vermelho')
 c3 = Caneta('verde')

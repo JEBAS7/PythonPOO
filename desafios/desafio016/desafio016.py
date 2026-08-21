@@ -17,9 +17,9 @@ class Funcionario:
 
 c1 = Funcionario('Maria', 'Administração', 'Diretora')
 print(c1.apresentacao())
-#inspect(c1)
+inspect(c1)
 
 c2 = Funcionario('Pedro', 'TI', 'Programador')
 print(c2.apresentacao())
-#inspect(c2)
+inspect(c2)
 

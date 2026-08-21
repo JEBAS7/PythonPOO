@@ -16,7 +16,7 @@ class Produto:
 
 
 
-# Seus testes idênticos aos do vídeo
+# Programa Principal
 p1 = Produto('iPhone 17 Pro Max', 25_000.85)
 p2 = Produto('Notebook Gamer', 8_000.00)
 

@@ -23,7 +23,7 @@ class ControleRemoto:
 
     def aumentar_volume(self):
         # CORREÇÃO: Agora a trava permite subir até o volume 4!
-        if self.ligada and self.volume < 4:
+        if self.ligada and self.volume < 5:
             self.volume += 1
 
     def diminuir_volume(self):
@@ -42,7 +42,7 @@ class ControleRemoto:
             tela_tv.add_column(justify="center")
             tela_tv.add_row("\n :prohibited: A TV está desligada\n", style="red")
             print(tela_tv)
-            print(f" < CH{self.canal} >  -  VOL{self.volume} + @")
+            print(f" < CH{self.canal} >  -  VOL{self.volume} + ")
             return
 
         # ----------------------------------------------------
@@ -63,15 +63,17 @@ class ControleRemoto:
         # CORREÇÃO: Barra de volume animada com quadradinhos fixos (MÁXIMO 4)
         barra_volume = "VOLUME =  "
         if self.volume == 0:
-            barra_volume += "[grey37]■■■■[/]"
+            barra_volume += "[grey37]■■■■■[/]"
         elif self.volume == 1:
-            barra_volume += "[cyan]■[/][grey37]■■■[/]"
+            barra_volume += "[cyan]■[/][grey37]■■■■[/]"
         elif self.volume == 2:
-            barra_volume += "[cyan]■■[/][grey37]■■[/]"
+            barra_volume += "[cyan]■■[/][grey37]■■■[/]"
         elif self.volume == 3:
-            barra_volume += "[cyan]■■■[/][grey37]■[/]"
+            barra_volume += "[cyan]■■■[/][grey37]■■[/]"
         elif self.volume == 4:
-            barra_volume += "[cyan]■■■■[/]"
+            barra_volume += "[cyan]■■■■[/][grey37]■[/]"
+        elif self.volume == 5:
+            barra_volume += "[cyan]■■■■■[/]"
 
         tela_tv.add_row(linha_canais)
         tela_tv.add_row(barra_volume)
@@ -110,3 +112,5 @@ while True:
         break
     else:
         print("[grey50]Botão inválido! Use +, -, <, >, @ ou 0[/]")
+
+    print('\n' * 10)

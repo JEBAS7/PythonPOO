@@ -27,6 +27,6 @@ class Churrasco:
         print(Panel(texto, title=self.titulo, title_align="center"))
 
 
-# --- TESTE DO CÓDIGO (Igual à linha 38 e 39 do vídeo) ---
+# Programa Pricipal
 c1 = Churrasco(titulo="Churras dos Amigos", quant=15)
 c1.analisar()
